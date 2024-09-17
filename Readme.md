@@ -24,3 +24,11 @@ To evaluate the effectiveness of my clustering approach, I developed a custom ev
 - Accuracy Calculation: I calculate the accuracy by comparing the number of correctly matched detections to the total number of detections in the ground truth data.
 
 Using this technique, I achieved approximately `84% accuracy` in clustering.
+
+
+## Real-Time Predictions with Streaming Data
+My solution requires all the detection data to be available before making predictions, adapting it for real-time data streaming would involve significant changes. Here’s how I would handle it:
+
+- Incremental Clustering: I would process and normalize each detection feature vector as it arrives and instead of clustering all the data at once, I would use incremental or online clustering algorithms. Algorithms like Mini-Batch KMeans or online versions of Gaussian Mixture Models (GMM) can update clusters as new data arrives.
+
+- Buffering and Batch Processing: To manage the data efficiently, I might use a buffering strategy where incoming detections are temporarily stored in batches. Once a batch reaches a certain size or time interval, it would be processed to update clusters and predictions.
